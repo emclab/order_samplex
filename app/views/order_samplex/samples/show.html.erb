@@ -1,0 +1,51 @@
+<div id="main_body">
+<h4><%=t('Sample Info') %></h4>
+
+<p>
+  <b><%= t('Order#') %></b>
+  <%= @sample.order_id %>
+</p>
+<p>
+  <b><%= t('Qty')  %></b>
+  <%= @sample.qty %>
+</p>
+<p>
+  <b><%= t('Sample Requirement') %></b>
+  <%= @sample.sample_requirement %>
+</p>
+<p>
+  <b><%= t('Delivery Date') %></b>
+  <%= @sample.delivery_date.strftime("%Y/%m/%d") %>
+</p>
+<p>
+  <b><%= t('Quqality Feedback') %></b>
+  <%= @sample.quality_feedback %>
+</p>
+<p>
+  <b><%= t('Shipping Date') %></b>
+  <%= @sample.shipping_date.strftime("%Y/%m/%d") if @sample.shipping_date.present? %>
+</p>
+<p>
+  <b><%= t('Shipping Instruction') %></b>
+  <%= @sample.shipping_instruction %>
+</p>
+<p>
+  <b><%= t('OKed') %></b>
+  <%= @sample.oked ? t('Yes') : t('No') %>
+</p>
+<p>
+  <b><%= t('Last Updated By') %></b>
+  <%= @sample.last_updated_by.name %>
+</p>
+<p>
+  <b>LOG：</b>
+  <% Commonx::Log.where('resource_id = ? AND resource_name = ?', @sample.id, params[:controller].sub('/', '_')).order("created_at DESC").each do |t| %>
+    <li><%= t.created_at.strftime("%Y/%m/%d") %>,&nbsp; <%= t.last_updated_by.name %>,&nbsp; <%= t.log %> </li>
+  <% end %>
+</p>
+
+  <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :id => 'close', :class => BUTTONS_CLS['action'] %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%= link_to t('New Log'), SUBURI + commonx.new_log_path(:resource_id => @sample.id, :resource_name => params[:controller], :subaction => 'order_sample', :format => :js), :remote => true, 
+                          :id => 'new_log_link', :class => BUTTONS_CLS['action'] if has_action_right?('create_order_sample', 'commonx/logs') %>    	
+</div>

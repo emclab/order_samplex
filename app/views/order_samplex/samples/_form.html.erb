@@ -1,0 +1,22 @@
+<%= simple_form_for @sample do |f| %>    
+
+  <%= f.input :order_id, :label => t("Order#"), :readonly => true, :input_html => {:value => @order.id} %> 
+  <%= f.input :qty, :label => t("Qty") %>
+  <%= f.input :sample_requirement, :label => t("Sample Requirement"), :input_html => {:rows => 4} unless readonly?(@sample, 'sample_requirement')%>   
+  <%= f.input :sample_requirement, :label => t("Sample Requirement"), :readonly => true, :input_html => {:rows => 4} if readonly?(@sample, 'sample_requirement')%>
+  <%= f.input :delivery_date, :label => t("Delivery Date"), :as => :string %>
+  <%= f.input :shipping_tracking, :label => t("Shipping Tracking") %>  
+  <%= f.input :shipping_date, :label => t("Shipping Date"), :as => :string %> 
+  <%= f.input :shipping_instruction, :label => t("Shipping Instruction") %> 
+  <%= f.input :quality_feedback, :label => t('Quality Feedback'), :input_html => {:rows => 4} unless readonly?(@sample, 'quality_feedback') %>
+  <%= f.input :quality_feedback, :label => t('Quality Feedback'), :readonly => true, :input_html => {:rows => 4} if readonly?(@sample, 'quality_feedback') %>
+  <% if readonly?(@sample, 'oked')%>
+     <%= f.input :oked_noupdate, :label => t('Sample OKed'), :readonly => true, :required => false, :input_html => {:value => @sample.oked} %>
+  <% else %>
+     <%= f.input :oked, :label => t('Sample OKed'), :as => :boolean %>
+  <% end %>
+  <%= f.input :oked_date, :label => t("Date OKed"), :as => :string %> 
+  
+  <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
+  <%= f.button :submit, t('Save') %>  
+<% end %>

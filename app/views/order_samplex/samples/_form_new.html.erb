@@ -1,0 +1,14 @@
+<%= simple_form_for @sample do |f| %>    
+
+  <%= f.input :order_id, :label => t("Order#"), :readonly => true, :input_html => {:value => @order.id} %> 
+  <%= f.input :qty, :label => t("Qty") %>
+  <%= f.input :sample_requirement, :label => t("Sample Requirement"), :input_html => {:rows => 4} %>   
+  <%= f.input :delivery_date, :label => t("Delivery Date"), :as => :string %>
+  <%= f.input :shipping_tracking, :label => t("Shipping Tracking") %>  
+  <%= f.input :shipping_date, :label => t("Shipping Date"), :as => :string %> 
+  <%= f.input :shipping_instruction, :label => t("Shipping Instruction") %> 
+  <%= f.input :oked, :label => t("Sample Oked?"), :as => :boolean %> 
+  
+  <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
+  <%= f.button :submit, t('Save') %>  
+<% end %>

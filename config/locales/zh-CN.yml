@@ -1,0 +1,33 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+  
+zh-CN:
+  
+  #maint_recordx
+  Samples  : '样品一览'
+  New Sample  : '新样品'
+  Update Sample : '更新样品'
+  Edit Sample : '更新样品'
+  Sample Info : '样品内容'
+  uccessfully Saved! : '已保存！'
+  Successfully Updated! : '已更新！'
+  Data Error. Not Saved! : '数据错误。 无法保存！'
+  Data Error. Not Updated! : '数据错误。无法更新！'
+  Customer : '客户'
+  'Note:' : '注释：'
+  Note : '注释'
+  'Yes' : '是'
+  'No'  : '否'
+  'yes' : '是'
+  'no'  : '否'
+  Duplicate Name!  : '名字重复！'
+  'Duplicate Name!'  : '名字重复！'
+  Cancel  : '取消'
+  Cancelled : '已取消'
+  Completed : '已完成'
+  Other Requirement : '其他要求'
+  Requested By  : '申请'
+  Last Updated By : '更改'  
+  Save : '保存'
+  'Save' : '保存'
+  'Order#' : '订单#'
