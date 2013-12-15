@@ -16,6 +16,7 @@ gem 'kustomerx', :path => '../kustomerx'
 gem 'jobshop_quotex', :path => '../jobshop_quotex'
 gem 'mfg_orderx', :path => '../mfg_orderx'
 gem 'mfg_processx', :path => '../mfg_processx'
+gem 'searchx', :path => '../searchx'
 
 gem 'event_taskx', :path => '../event_taskx'
 
