@@ -25,6 +25,7 @@ module OrderSamplex
       if @sample.save
         redirect_to CGI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Saved!")
       else
+        @order = OrderSamplex.order_class.find_by_id(params[:sample][:order_id]) if params[:sample].present? && params[:sample][:order_id].present?
         flash[:notice] = t('Data Error. Not Saved!')
         render 'new'
       end
