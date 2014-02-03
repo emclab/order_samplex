@@ -10,13 +10,13 @@ module OrderSamplex
       @samples = params[:order_samplex_samples][:model_ar_r]
       @samples = @samples.where(:order_id => @order.id) if @order
       @samples = @samples.page(params[:page]).per_page(@max_pagination)
-      @erb_code = find_config_const('sample_index_view', 'order_samplex_samples')
+      @erb_code = find_config_const('sample_index_view', 'order_samplex')
     end
   
     def new
       @title = t('New Sample')
       @sample = OrderSamplex::Sample.new()
-      @erb_code = find_config_const('sample_new_view', 'order_samplex_samples')
+      @erb_code = find_config_const('sample_new_view', 'order_samplex')
     end
   
     def create
@@ -34,7 +34,7 @@ module OrderSamplex
     def edit
       @title = t('Update Sample')
       @sample = OrderSamplex::Sample.find_by_id(params[:id])
-      @erb_code = find_config_const('sample_edit_view', 'order_samplex_samples')
+      @erb_code = find_config_const('sample_edit_view', 'order_samplex')
     end
   
     def update
@@ -51,7 +51,7 @@ module OrderSamplex
     def show
       @title = t('Sample Info')
       @sample = OrderSamplex::Sample.find_by_id(params[:id])
-      @erb_code = find_config_const('sample_show_view', 'order_samplex_samples')
+      @erb_code = find_config_const('sample_show_view', 'order_samplex')
     end
     
     protected

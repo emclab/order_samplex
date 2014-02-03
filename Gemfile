@@ -17,6 +17,8 @@ gem 'jobshop_quotex', :path => '../jobshop_quotex'
 gem 'mfg_orderx', :path => '../mfg_orderx'
 gem 'mfg_processx', :path => '../mfg_processx'
 gem 'searchx', :path => '../searchx'
+gem 'state_machine_logx', :path => '../state_machine_logx'
+gem 'biz_workflowx', :path => '../biz_workflowx'
 
 gem 'event_taskx', :path => '../event_taskx'
 
