@@ -83,7 +83,7 @@ module OrderSamplex
         session[:user_privilege] = Authentify::UserPrivilegeHelper::UserPrivilege.new(@u.id)
         q = FactoryGirl.attributes_for(:order_samplex_sample, :order_id => @o.id)
         get 'create', {:use_route => :order_samplex, :order_id => @o.id, :sample => q}
-        response.should redirect_to CGI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Saved!")
+        response.should redirect_to URI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Saved!")
       end
       
       it "should render new with data error" do
@@ -117,7 +117,7 @@ module OrderSamplex
         session[:user_privilege] = Authentify::UserPrivilegeHelper::UserPrivilege.new(@u.id)
         q = FactoryGirl.create(:order_samplex_sample, :order_id => @o1.id)
         get 'update', {:use_route => :order_samplex, :id => q.id, :sample => {:sample_requirement => 'steel 201'}}
-        response.should redirect_to CGI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Updated!")
+        response.should redirect_to URI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Updated!")
       end
       
       it "should render edit with data error" do

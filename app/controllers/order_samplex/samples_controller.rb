@@ -23,7 +23,7 @@ module OrderSamplex
       @sample = OrderSamplex::Sample.new(params[:sample], :as => :role_new)
       @sample.last_updated_by_id = session[:user_id]
       if @sample.save
-        redirect_to CGI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Saved!")
+        redirect_to URI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Saved!")
       else
         @order = OrderSamplex.order_class.find_by_id(params[:sample][:order_id]) if params[:sample].present? && params[:sample][:order_id].present?
         flash[:notice] = t('Data Error. Not Saved!')
@@ -41,7 +41,7 @@ module OrderSamplex
       @sample = OrderSamplex::Sample.find_by_id(params[:id])
       @sample.last_updated_by_id = session[:user_id]
       if @sample.update_attributes(params[:sample], :as => :role_update)
-        redirect_to CGI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Updated!")
+        redirect_to URI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Updated!")
       else
         flash[:notice] = t('Data Error. Not Updated!')
         render 'edit'
