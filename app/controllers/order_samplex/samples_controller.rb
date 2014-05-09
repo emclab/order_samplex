@@ -26,6 +26,7 @@ module OrderSamplex
         redirect_to URI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Saved!")
       else
         @order = OrderSamplex.order_class.find_by_id(params[:sample][:order_id]) if params[:sample].present? && params[:sample][:order_id].present?
+        @erb_code = find_config_const('sample_new_view', 'order_samplex')
         flash[:notice] = t('Data Error. Not Saved!')
         render 'new'
       end
@@ -43,6 +44,7 @@ module OrderSamplex
       if @sample.update_attributes(params[:sample], :as => :role_update)
         redirect_to URI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Updated!")
       else
+        @erb_code = find_config_const('sample_edit_view', 'order_samplex')
         flash[:notice] = t('Data Error. Not Updated!')
         render 'edit'
       end

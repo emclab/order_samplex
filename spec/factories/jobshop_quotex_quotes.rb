@@ -4,7 +4,6 @@ FactoryGirl.define do
   factory :jobshop_quotex_quote, :class => 'JobshopQuotex::Quote' do
     rfq_id 1
     quote_task_id 1
-    wfid "MyString"
     last_updated_by_id 1
     qty_quoted 1
     unit "MyString"
@@ -30,5 +29,6 @@ FactoryGirl.define do
     quoted_by_id 1
     void false
     note "MyText"
+    drawing_num 'ttrrt'
   end
 end
